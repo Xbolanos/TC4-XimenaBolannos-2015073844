@@ -3,23 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
 
-    <RelativeLayout
+
+    >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/relativeLayout1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
 
         android:padding="5dp">
-
-
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/border_layout">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,12 +37,17 @@
                     android:layout_height="150dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:src="@drawable/ic_launcher_background"></ImageView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -57,33 +67,7 @@
                             android:layout_weight="1"
                             android:ellipsize="marquee"
                             android:text="TextView"
-                            android:textSize="14sp"></TextView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/star"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_weight="1"
-                            app:srcCompat="@android:drawable/btn_star_big_on" />
-
-                        <TextView
-                            android:id="@+id/stars"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-
-                            android:layout_below="@+id/imageView1"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="2dp"
-                            android:layout_weight="1"
-                            android:ellipsize="marquee"
-                            android:text="TextView"
+                            android:textColor="	#200000"
                             android:textSize="12sp"></TextView>
                     </LinearLayout>
 
@@ -91,26 +75,65 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/meta"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_weight="1"
-                            app:srcCompat="@android:drawable/btn_star_big_on" />
-
-                        <TextView
-                            android:id="@+id/metascore"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/imageView1"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="2dp"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:ellipsize="marquee"
-                            android:text="TextView"
-                            android:textSize="12sp"></TextView>
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/star"
+                                android:layout_width="50dp"
+                                android:layout_height="20dp"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <TextView
+                                android:id="@+id/stars"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_below="@+id/imageView1"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_weight="1"
+                                android:ellipsize="marquee"
+                                android:gravity="bottom|center_vertical"
+                                android:text="TextView"
+                                android:textColor="	#200000"
+                                android:textSize="12sp"></TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/meta"
+                                android:layout_width="50dp"
+                                android:layout_height="20dp"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <TextView
+                                android:id="@+id/metascore"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/imageView1"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_weight="1"
+                                android:ellipsize="marquee"
+                                android:gravity="center_vertical"
+                                android:text="TextView"
+                                android:textColor="	#200000"
+                                android:textSize="12sp"></TextView>
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -120,7 +143,5 @@
 
 
     </RelativeLayout>
-
-
 
 </android.support.constraint.ConstraintLayout>

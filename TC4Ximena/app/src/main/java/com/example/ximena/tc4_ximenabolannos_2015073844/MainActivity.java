@@ -98,16 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         mAdapter = new GridViewAdapter(c, movies);
 
                         grid.setAdapter(mAdapter);
-                        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                            public void onItemClick(AdapterView<?> parent, View v,
-                                                    int position, long id) {
-
-                                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT)
-                                        .show();
-
-                            }
-                        });
 
                     }
 
