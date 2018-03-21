@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             obj.put("stars", stars.get(i).attr("data-value"));
                             obj.put("metascore", metascores.get(i).text());
                             obj.put("image", images.get(i).attr("loadlate"));
-                            Log.d("JSON", obj.toString());
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("JSON ARRAY:", jsonArray.toString());
 
                         grid =  findViewById(R.id.gridView);
-                        Log.d("movies",movies.toString());
+
                         mAdapter = new GridViewAdapter(c, movies);
 
                         grid.setAdapter(mAdapter);

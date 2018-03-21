@@ -2,7 +2,9 @@ package com.example.ximena.tc4_ximenabolannos_2015073844;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Ximena on 19/3/2018.
@@ -93,18 +96,33 @@ public class GridViewAdapter  extends BaseAdapter
                 name.setText(movies.getJSONObject(position).getString("name"));
                 stars.setText(movies.getJSONObject(position).getString("stars"));
                 metascore.setText(movies.getJSONObject(position).getString("metascore"));
-                //loadImageFromURL(movies.getJSONObject(position).getString("image"),image);
+
                 if(image!=null) {
                     Picasso.with(mContext).load(movies.getJSONObject(position).getString("image")).into(image);
-                    Picasso.with(mContext).load(R.drawable.meta).into(meta);
-                    Picasso.with(mContext).load(R.drawable.star).into(star);
+                    meta.setImageResource(R.drawable.meta);
+                    star.setImageResource(R.drawable.star);
+
+
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
 
-        return view;
+            return view;
+    }
+
+    protected Bitmap getImage(String url) {
+        Bitmap bimage = null;
+        try {
+            InputStream in = new java.net.URL(url).openConnection().getInputStream();
+            bimage = BitmapFactory.decodeStream(in);
+
+        } catch (Exception e) {
+            Log.e("Error Message", e.getMessage());
+            e.printStackTrace();
+        }
+        return bimage;
     }
 
 }
